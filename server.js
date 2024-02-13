@@ -3,10 +3,11 @@ const url = require("url");
 const fs = require("fs");
 
 http.createServer((req,res) => {
-    res.writeHead(200, "fea23gth club works")
+    
     if (req.url==="/english") {
+        res.writeHead(200, "fea23gth club works",{"Content-Type":"text/plain"})
         fs.readFile("rules_en.txt", (err,data)=>{
-            if (err) throw err;
+            
             res.write(data);
             res.end();
         }
@@ -26,6 +27,6 @@ http.createServer((req,res) => {
     }
 
 
-    res.end();
+    
 
 }).listen(3030,()=>console.log("server started"))
