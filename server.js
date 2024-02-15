@@ -15,7 +15,7 @@ console.log(queries.rule);
 
 
     
-    if (req.url==="/english") {
+    if (req.url.includes("/english")) {
         res.writeHead(200, "fea23gth club works",{"Content-Type":"text/plain"})
         fs.readFile("rules_en.txt", (err,data)=>{
             if (err) throw err;
