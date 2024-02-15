@@ -3,11 +3,22 @@ const url = require("url");
 const fs = require("fs");
 
 http.createServer((req,res) => {
+//queries???
+const adress_query= "http://fea23ght-club.se/english?rule=1";
+const fullAdress= url.parse(adress_query,true);
+let fullPath=url.parse(req.url, true);
+let queries= fullPath.query;
+console.log(queries.rule);
+
+
+//end of queries
+
+
     
     if (req.url==="/english") {
         res.writeHead(200, "fea23gth club works",{"Content-Type":"text/plain"})
         fs.readFile("rules_en.txt", (err,data)=>{
-            
+            if (err) throw err;
             res.write(data);
             res.end();
         }
@@ -50,16 +61,14 @@ http.createServer((req,res) => {
 To achieve a Godkänt grade you must:
 
 Create a webserver
-Create a home page
-Create content for at least 4 routes
-At least two routes must render html
-At least two routes must display content that comes from an external file (eg txt or html)
+Create a home page DONE
+Create content for at least 4 routes DONE
+At least two routes must render html DONE
+At least two routes must display content that comes from an external file (eg txt or html) DONE
 To achieve a Välgodkänt grade you must do the above and:
 Read queries passed in the url
 Generate different content based on the queries
-The content should be stored in external files
+The content should be stored in external files DONE
 
-The actual content, routes and queries are entirety up to you. For ease of assessment, 
-I strongly recommend adding instructions on how 
-to access your routes and queries to the home page. I need to know where I'm supposed to go!
+
 */
