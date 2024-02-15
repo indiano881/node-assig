@@ -5,10 +5,10 @@ const fs = require("fs");
 http.createServer((req,res) => {
 //queries???
 const adress_query= "http://fea23ght-club.se/english?rule=1";
-const fullAdress= url.parse(adress_query,true);
+const fullAdress= url.parse(adress_query, true);
 let fullPath=url.parse(req.url, true);
 let queries= fullPath.query;
-console.log(queries.rule);
+
 
 
 //end of queries
@@ -16,6 +16,12 @@ console.log(queries.rule);
 
     
     if (req.url==="/english") {
+        
+        if (queries.rule==="1") {
+            res.writeHead(200, "fea23gth club works",{"Content-Type":"text/plain"})
+            res.write("<h1> Rule n.1 is: you don´t talk about the fea23ght club  </h1>");
+            res.end();
+        }
         res.writeHead(200, "fea23gth club works",{"Content-Type":"text/plain"})
         fs.readFile("rules_en.txt", (err,data)=>{
             if (err) throw err;
@@ -41,7 +47,7 @@ console.log(queries.rule);
             res.end();
         })
 
-    } else {
+    } else if (req.url==="/homepage"){
         res.writeHead(200,"fea23gth club works",{"Content-Type":"text/html"})
         fs.readFile("index.html", (err,data)=>{
             if (err) throw err;
