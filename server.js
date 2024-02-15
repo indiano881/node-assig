@@ -12,7 +12,7 @@ const fullAdress= url.parse(adress_query,true);
     
     if (req.url.includes("/english")) {
         res.writeHead(200, "fea23gth club works",{"Content-Type":"text/plain"})
-        let queries= url.parse(req.url, true).query;
+        let queries= url.parse(req.url, true).query;//req.url from the client//true to read the queries otherwise will ignore the query
         if (queries.rule==="1") {
             res.write("Rule n.1");
             res.end();
@@ -37,7 +37,10 @@ const fullAdress= url.parse(adress_query,true);
         } else if (queries.rule=="8") {
             res.write("Rule n.8");
             res.end();
-        } 
+        } else {
+            res.write("Sorry this rule does not exists");
+            res.end();
+        }
         console.log(queries.rule);
 
         fs.readFile("rules_en.txt", (err,data)=>{
