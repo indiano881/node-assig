@@ -15,15 +15,28 @@ http.createServer((req,res) => {
         )
         
     } else if (req.url==="/italian") {
+        res.writeHead(200, "fea23gth club works",{"Content-Type":"text/plain"})
         fs.readFile("rules_it.txt", (err,data)=>{
             if (err) throw err;
             res.write(data);
             res.end();
         })
         
+    } else if (req.url==="/about_us") {
+        res.writeHead(200,"fea23gth club works",{"Content-Type":"text/html"})
+        fs.readFile("about_us.html", (err,data)=>{
+            if (err) throw err;
+            res.write(data);
+            res.end();
+        })
+
     } else {
-        res.write("<h1> Welcome to the Fea23ght club</h1>")
-        res.end();
+        res.writeHead(200,"fea23gth club works",{"Content-Type":"text/html"})
+        fs.readFile("index.html", (err,data)=>{
+            if (err) throw err;
+            res.write(data);
+            res.end();
+        })
     }
 
 
@@ -46,5 +59,7 @@ Read queries passed in the url
 Generate different content based on the queries
 The content should be stored in external files
 
-The actual content, routes and queries are entirety up to you. For ease of assessment, I strongly recommend adding instructions on how to access your routes and queries to the home page. I need to know where I'm supposed to go!
+The actual content, routes and queries are entirety up to you. For ease of assessment, 
+I strongly recommend adding instructions on how 
+to access your routes and queries to the home page. I need to know where I'm supposed to go!
 */
