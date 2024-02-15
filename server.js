@@ -6,9 +6,7 @@ http.createServer((req,res) => {
 //queries???
 const adress_query= "http://fea23ght-club.se/english?rule=1";
 const fullAdress= url.parse(adress_query,true);
-let fullPath=url.parse(req.url, true);
-let queries= fullPath.query;
-console.log(queries.rule);
+
 
 
 //end of queries
@@ -17,14 +15,20 @@ console.log(queries.rule);
     
     if (req.url.includes("/english")) {
         res.writeHead(200, "fea23gth club works",{"Content-Type":"text/plain"})
+        let queries= url.parse(req.url, true).query;
+        if (queries.rule==="1") {
+            res.write("Rule n.1");
+        }
+        console.log(queries.rule);
+
         fs.readFile("rules_en.txt", (err,data)=>{
             if (err) throw err;
             res.write(data);
-            res.end();
+            
         }
             
         )
-        
+        res.end();
     } else if (req.url==="/italian") {
         res.writeHead(200, "fea23gth club works",{"Content-Type":"text/plain"})
         fs.readFile("rules_it.txt", (err,data)=>{
