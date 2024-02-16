@@ -73,8 +73,8 @@ http.createServer((req,res) => {
 
 }).listen(3030,()=>console.log("server started"))
 
-//?language=english&rule=1;
-//OR /english?rule=1
+//IDEA FARE 2 URL CON ENGLISH_ALL ENGLISH_SINGLE!!!
+//english?rule=1
 /*
 To achieve a Godkänt grade you must:
 
