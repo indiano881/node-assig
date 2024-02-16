@@ -3,41 +3,35 @@ const url = require("url");
 const fs = require("fs");
 
 http.createServer((req,res) => {
-//queries-do we need this part????
-const adress_query= "http://fea23ght-club.se/english?rule=1";
-const fullAdress= url.parse(adress_query,true);
-//end of queries
 
-
-    
     if (req.url.includes("/english")) {
         res.writeHead(200, "fea23gth club works",{"Content-Type":"text/plain"})
         let queries= url.parse(req.url, true).query;//req.url from the client//true to read the queries otherwise will ignore the query
-        if (queries.rule==="1") {
+        if (queries && queries.rule=="1") {
             res.write("Rule n.1");
             res.end();
-        } else if (queries.rule=="2") {
+        } else if (queries && queries.rule=="2") {
             res.write("Rule n.2");
             res.end();
-        }  else if (queries.rule=="3") {
+        }  else if (queries && queries.rule=="3") {
             res.write("Rule n.3");
             res.end();
-        }  else if (queries.rule=="4") {
+        }  else if (queries && queries.rule=="4") {
             res.write("Rule n.4");
             res.end();
-        } else if (queries.rule=="5") {
+        } else if (queries && queries.rule=="5") {
             res.write("Rule n.5");
             res.end();
-        }  else if (queries.rule=="6") {
+        }  else if (queries && queries.rule=="6") {
             res.write("Rule n.6");
             res.end();
-        }  else if (queries.rule=="7") {
+        }  else if (queries && queries.rule=="7") {
             res.write("Rule n.7");
             res.end();
-        } else if (queries.rule=="8") {
+        } else if (queries && queries.rule=="8") {
             res.write("Rule n.8");
             res.end();
-        } else {
+        } else if (queries){
             res.write("Sorry this rule does not exists");
             res.end();
         }
@@ -47,9 +41,7 @@ const fullAdress= url.parse(adress_query,true);
             if (err) throw err;
             res.write(data);
             res.end();
-        }
-            
-        )
+        })
         
     } else if (req.url==="/italian") {
         res.writeHead(200, "fea23gth club works",{"Content-Type":"text/plain"})
