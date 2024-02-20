@@ -1,7 +1,10 @@
 Hi Rob,
+
+the repository is git@github.com:indiano881/node-assig.git
+
+*************************************
 here below the instructions:
 
-************************************
 from 127.0.0.1:3030 (localhost:3030)
 
 /EN (OBS is the only one with queries, I will explain you better below)
