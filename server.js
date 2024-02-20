@@ -5,32 +5,58 @@ const fs = require("fs");
 http.createServer((req,res) => {
 
     if (req.url.includes("/EN")) {
-        res.writeHead(200, "fea23gth club works",{"Content-Type":"text/plain"})
+        res.writeHead(200, "fea23gth club works",{"Content-Type":"text/html"})
         let queries= url.parse(req.url, true).query;//req.url from the client//true to read the queries otherwise will ignore the query
         if (queries && queries.rule=="1") {
-            res.write("Rule n.1");
-            res.end();
+
+            fs.readFile("./single_rules_EN/1.html", (err,data)=> {
+                if (err) throw err;
+                res.write(data);
+                res.end();
+            })
+            
         } else if (queries && queries.rule=="2") {
-            res.write("Rule n.2");
-            res.end();
+            fs.readFile("./single_rules_EN/2.html", (err,data)=> {
+                if (err) throw err;
+                res.write(data);
+                res.end();
+            })
         }  else if (queries && queries.rule=="3") {
-            res.write("Rule n.3");
-            res.end();
+            fs.readFile("./single_rules_EN/3.html", (err,data)=> {
+                if (err) throw err;
+                res.write(data);
+                res.end();
+            })
         }  else if (queries && queries.rule=="4") {
-            res.write("Rule n.4");
-            res.end();
+            fs.readFile("./single_rules_EN/4.html", (err,data)=> {
+                if (err) throw err;
+                res.write(data);
+                res.end();
+            })
         } else if (queries && queries.rule=="5") {
-            res.write("Rule n.5");
-            res.end();
+            fs.readFile("./single_rules_EN/5.html", (err,data)=> {
+                if (err) throw err;
+                res.write(data);
+                res.end();
+            })
         }  else if (queries && queries.rule=="6") {
-            res.write("Rule n.6");
-            res.end();
+            fs.readFile("./single_rules_EN/6.html", (err,data)=> {
+                if (err) throw err;
+                res.write(data);
+                res.end();
+            })
         }  else if (queries && queries.rule=="7") {
-            res.write("Rule n.7");
-            res.end();
+            fs.readFile("./single_rules_EN/7.html", (err,data)=> {
+                if (err) throw err;
+                res.write(data);
+                res.end();
+            })
         } else if (queries && queries.rule=="8") {
-            res.write("Rule n.8");
-            res.end();
+            fs.readFile("./single_rules_EN/8.html", (err,data)=> {
+                if (err) throw err;
+                res.write(data);
+                res.end();
+            })
         } else if (queries){
             res.write("Sorry this rule does not exists");
             res.end();
