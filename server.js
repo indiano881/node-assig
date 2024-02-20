@@ -4,7 +4,7 @@ const fs = require("fs");
 
 http.createServer((req,res) => {
 
-    if (req.url.includes("/english")) {
+    if (req.url.includes("/EN_rule")) {
         res.writeHead(200, "fea23gth club works",{"Content-Type":"text/plain"})
         let queries= url.parse(req.url, true).query;//req.url from the client//true to read the queries otherwise will ignore the query
         if (queries && queries.rule=="1") {
@@ -35,14 +35,16 @@ http.createServer((req,res) => {
             res.write("Sorry this rule does not exists");
             res.end();
         }
-        console.log(queries.rule);
+        
 
+        
+        
+    } else if (req.url==="/english") {
         fs.readFile("rules_en.txt", (err,data)=>{
             if (err) throw err;
             res.write(data);
             res.end();
         })
-        
     } else if (req.url==="/italian") {
         res.writeHead(200, "fea23gth club works",{"Content-Type":"text/plain"})
         fs.readFile("rules_it.txt", (err,data)=>{
