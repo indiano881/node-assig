@@ -1,0 +1,22 @@
+Hi Rob,
+here below the instructions:
+
+************************************
+from 127.0.0.1:3030 (localhost:3030)
+
+/EN (OBS is the only one with queries, I will explain you better below)
+/english
+/italian
+/about_us
+(else)==> should reach homepage with welcome message and motto
+******************************************************
+Queries:
+from localhost:3030/EN
+
+?rule=1
+?rule=2
+?rule=3 
+[...]
+?rule=8
+
+from rule >=9 should appear message page not found

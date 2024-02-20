@@ -4,7 +4,7 @@ const fs = require("fs");
 
 http.createServer((req,res) => {
 
-    if (req.url.includes("/EN_rule")) {
+    if (req.url.includes("/EN")) {
         res.writeHead(200, "fea23gth club works",{"Content-Type":"text/plain"})
         let queries= url.parse(req.url, true).query;//req.url from the client//true to read the queries otherwise will ignore the query
         if (queries && queries.rule=="1") {
