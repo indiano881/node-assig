@@ -6,7 +6,7 @@ http.createServer((req,res) => {
 
     if (req.url.includes("/EN")) {
         res.writeHead(200, "fea23gth club works",{"Content-Type":"text/html"})
-        let queries= url.parse(req.url, true).query;//req.url from the client//true to read the queries otherwise will ignore the query
+        let queries= url.parse(req.url, true).query;
         if (queries && queries.rule=="1") {
 
             fs.readFile("./single_rules_EN/1.html", (err,data)=> {
